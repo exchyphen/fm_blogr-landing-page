@@ -31,9 +31,7 @@ function App() {
     if (index === 1) {
       return (
         <div
-          className={
-            "nav__list-container" + (footer ? " footer__list-container" : "")
-          }
+          className={!footer ? "nav__list-container" : "footer__list-container"}
         >
           <a
             className={"nav__list-item" + (footer ? " footer__list-item" : "")}
@@ -65,9 +63,7 @@ function App() {
     } else if (index === 2) {
       return (
         <div
-          className={
-            "nav__list-container" + (footer ? " footer__list-container" : "")
-          }
+          className={!footer ? "nav__list-container" : "footer__list-container"}
         >
           <a
             className={"nav__list-item" + (footer ? " footer__list-item" : "")}
@@ -94,9 +90,7 @@ function App() {
     } else {
       return (
         <div
-          className={
-            "nav__list-container" + (footer ? " footer__list-container" : "")
-          }
+          className={!footer ? "nav__list-container" : "footer__list-container"}
         >
           <a
             className={"nav__list-item" + (footer ? " footer__list-item" : "")}
@@ -155,24 +149,27 @@ function App() {
 
     return (
       <div className="nav__dropdown-menu">
-        <div className="nav__a-wrapper">
-          <a onClick={() => setNavActiveTab(navActiveTab === 1 ? 0 : 1)}>
-            Product
-          </a>
+        <div
+          className="nav__a-wrapper"
+          onClick={() => setNavActiveTab(navActiveTab === 1 ? 0 : 1)}
+        >
+          <a>Product</a>
           {createNavArrows(1)}
           {!mobile && navActiveTab === 1 ? createNavItemList(1, false) : null}
         </div>
-        <div className="nav__a-wrapper">
-          <a onClick={() => setNavActiveTab(navActiveTab === 2 ? 0 : 2)}>
-            Company
-          </a>
+        <div
+          className="nav__a-wrapper"
+          onClick={() => setNavActiveTab(navActiveTab === 2 ? 0 : 2)}
+        >
+          <a>Company</a>
           {createNavArrows(2)}
           {!mobile && navActiveTab === 2 ? createNavItemList(2, false) : null}
         </div>
-        <div className="nav__a-wrapper">
-          <a onClick={() => setNavActiveTab(navActiveTab === 3 ? 0 : 3)}>
-            Connect
-          </a>
+        <div
+          className="nav__a-wrapper"
+          onClick={() => setNavActiveTab(navActiveTab === 3 ? 0 : 3)}
+        >
+          <a>Connect</a>
           {createNavArrows(3)}
           {!mobile && navActiveTab === 3 ? createNavItemList(3, false) : null}
         </div>
@@ -205,29 +202,27 @@ function App() {
         </div>
       </header>
       <main>
+        <h1 className="main__h1">Designed for the future</h1>
         <section className="feature1">
-          <h1 className="feature1__h1">Designed for the future</h1>
-          <div className="feature1__editor-container">
-            <div className="feature1__editor-item">
-              <h2>Introducing an extensible editor</h2>
-              <p>
-                Blogr features an exceedingly intuitive interface which lets you
-                focus on one thing: creating content. The editor supports
-                management of multiple blogs and allows easy manipulation of
-                embeds such as images, videos, and Markdown. Extensibility with
-                plugins and themes provide easy ways to add functionality or
-                change the looks of a blog.
-              </p>
-            </div>
-            <div className="feature1__editor-item">
-              <h2>Robust content management</h2>
-              <p>
-                Flexible content management enables users to easily move through
-                posts. Increase the usability of your blog by adding customized
-                categories, sections, format, or flow. With this functionality,
-                you’re in full control.
-              </p>
-            </div>
+          <div className="feature1__container feature__container">
+            <h2>Introducing an extensible editor</h2>
+            <p>
+              Blogr features an exceedingly intuitive interface which lets you
+              focus on one thing: creating content. The editor supports
+              management of multiple blogs and allows easy manipulation of
+              embeds such as images, videos, and Markdown. Extensibility with
+              plugins and themes provide easy ways to add functionality or
+              change the looks of a blog.
+            </p>
+          </div>
+          <div className="feature1__container feature__container">
+            <h2>Robust content management</h2>
+            <p>
+              Flexible content management enables users to easily move through
+              posts. Increase the usability of your blog by adding customized
+              categories, sections, format, or flow. With this functionality,
+              you’re in full control.
+            </p>
           </div>
         </section>
         <section className="feature2">
@@ -236,7 +231,7 @@ function App() {
             src={Phones}
             alt="phones img"
           ></img>
-          <div className="feature2__container">
+          <div className="feature2__container feature__container">
             <h3 className="feature2__header">
               State of the Art Infrastructure
             </h3>
@@ -248,7 +243,62 @@ function App() {
             </p>
           </div>
         </section>
-        <section className="feature3"></section>
+        <section className="feature3">
+          <div className="feature3__container feature__container">
+            <h2>Free, open, simple</h2>
+            <p>
+              Blogr is a free and open source application backed by a large
+              community of helpful developers. It supports features such as code
+              syntax highlighting, RSS feeds, social media integration,
+              third-party commenting tools, and works seamlessly with Google
+              Analytics. The architecture is clean and is relatively easy to
+              learn.
+            </p>
+          </div>
+          <div className="feature3__container feature__container">
+            <h2>Powerful tooling</h2>
+            <p>
+              Batteries included. We built a simple and straightforward CLI tool
+              that makes customization and deployment a breeze, but capable of
+              producing even the most complicated sites.
+            </p>
+          </div>
+        </section>
+        <footer>
+          <div className="footer__container">
+            <img
+              className="footer__logo"
+              src={Nav__Logo}
+              alt="footer logo"
+            ></img>
+            <div className="footer__nav-container">
+              <h4>Product</h4>
+              {createNavItemList(1, true)}
+            </div>
+            <div className="footer__nav-container">
+              <h4>Company</h4>
+              {createNavItemList(2, true)}
+            </div>
+            <div className="footer__nav-container">
+              <h4>Connect</h4>
+              {createNavItemList(3, true)}
+            </div>
+          </div>
+          <div className="attribution">
+            Challenge by{" "}
+            <a
+              href="https://www.frontendmentor.io?ref=challenge"
+              target="_blank"
+            >
+              Frontend Mentor
+            </a>
+            . Coded by{" "}
+            <a href="https://github.com/exchyphen" target="_blank">
+              exc
+            </a>
+            .
+          </div>
+        </footer>
       </main>
     </>
   );

@@ -41,6 +41,15 @@ p {
   color: var(--body-copy-color);
 }
 
+.feature__container {
+  max-width: 45%;
+  line-height: 1.8rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 /* header */
 
 .header {
@@ -95,6 +104,10 @@ p {
   gap: 0.5rem;
 
   position: relative;
+}
+
+.nav__a-wrapper:hover {
+  cursor: pointer;
 }
 
 .nav__arrow {
@@ -174,27 +187,13 @@ p {
   background: white;
 }
 
-/* feature1: editor */
+/* main */
 
-.feature1 {
-  width: 100%;
-  min-height: 900px;
-  padding: 2rem 10%;
-
-  background-image: url("./assets/images/illustration-editor-desktop.svg");
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  background-position: right -270px top;
-
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
+main {
   position: relative;
 }
 
-.feature1__h1 {
+.main__h1 {
   font-size: 3rem;
   font-weight: 600;
   color: var(--headings-color);
@@ -205,21 +204,25 @@ p {
   transform: translateX(-50%);
 }
 
-.feature1__editor-container {
-  max-width: 45%;
-  
+/* feature1: editor */
+
+.feature1 {
+  width: 100%;
+  min-height: 900px;
+  padding: 2rem 8%;
+
+  background-image: url("./assets/images/illustration-editor-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right -270px top;
+
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 3rem;
-
-  line-height: 1.8rem;
 }
 
-.feature1__editor-item {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
 
 /* feature2: infrastructure */
 
@@ -235,7 +238,7 @@ p {
   align-items: center;
 
   position: relative;
-  padding-right: 8%;
+  padding: 2rem 8%;
   margin: 3rem 0;
 }
 
@@ -249,13 +252,6 @@ p {
   transform: translateY(calc(-50% + 25px));
 }
 
-.feature2__container {
-  width: 45%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .feature2__header {
   font-size: 2.5rem;
   font-weight: 600;
@@ -265,4 +261,63 @@ p {
 .feature2__text {
   color: white;
   line-height: 1.8rem;
+}
+
+/* feature3: tools */
+
+.feature3 {
+  width: 100%;
+  min-height: 900px;
+  padding: 2rem 8%;
+  
+  background-image: url("./assets/images/illustration-laptop-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: left -280px top;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3rem;
+}
+
+/* footer */
+
+footer {
+  width: 100%;
+  background: var(--footer-background-color);
+  border-radius: 0 120px 0 0;
+  padding: 3rem 8%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+
+  color: white;
+}
+
+.footer__container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.footer__logo {
+  width: auto;
+  height: 3rem;
+}
+
+.footer__list-container {
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+h4 {
+  font-weight: 600;
+  margin-bottom: 3rem;
 }
