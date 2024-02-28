@@ -1,0 +1,45 @@
+:root {
+  /* colors */
+  --cta-text: hsl(356, 100%, 66%);
+  --hover-background-color: hsl(355, 100%, 74%); /* cta hover background */
+  --headings-color: hsl(208, 49%, 24%);
+  --learn-more-background-color: hsl(2, 100%, 70%);
+
+  --text-color: hsl(0, 0%, 100%); /* text */
+  --footer-color: hsl(240, 2%, 79%); /* footer */
+  --body-copy-color: hsl(207, 13%, 34%); /* body copy */
+  --footer-background-color: hsl(240, 10%, 16%); /* footer background */
+
+  /* gradients */
+
+  /* Background gradient - Intro/CTA mobile nav: */
+
+  --header-gradient-1: hsl(13, 100%, 72%);
+  --header-gradient-2: hsl(353, 100%, 62%);
+
+  /* Background gradient - body */
+  --body-gradient-1: hsl(237, 17%, 21%);
+  --body-gradient-2: hsl(237, 23%, 32%);
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+
+  /* font */
+  font-family: "Overpass", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+}
