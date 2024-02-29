@@ -9,6 +9,9 @@ import Phones from "./assets/images/illustration-phones.svg";
 import IconHamburger from "./assets/images/icon-hamburger.svg";
 import IconClose from "./assets/images/icon-close.svg";
 
+import EditorMobile from "./assets/images/illustration-editor-mobile.svg";
+import LaptopMobile from "./assets/images/illustration-laptop-mobile.svg";
+
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [navActiveTab, setNavActiveTab] = useState(0); // 0 = off
@@ -26,6 +29,12 @@ function App() {
     // clean up, remove event listener
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    if (windowWidth > mobileBreakpoint) {
+      setMenuState(false);
+    }
+  }, [windowWidth]);
 
   /* create item functions */
   const createNavItemList = (index, footer) => {
@@ -307,6 +316,13 @@ function App() {
       <main>
         <h1 className="main__h1">Designed for the future</h1>
         <section className="feature1">
+          {windowWidth <= mobileBreakpoint ? (
+            <img
+              className="feature1__img--mobile feature__img--mobile"
+              src={EditorMobile}
+              alt="editor mobile img"
+            ></img>
+          ) : null}
           <div className="feature1__container feature__container">
             <h2>Introducing an extensible editor</h2>
             <p>
@@ -347,6 +363,13 @@ function App() {
           </div>
         </section>
         <section className="feature3">
+          {windowWidth <= mobileBreakpoint ? (
+            <img
+              className="feature3__img--mobile feature__img--mobile"
+              src={LaptopMobile}
+              alt="laptop mobile img"
+            ></img>
+          ) : null}
           <div className="feature3__container feature__container">
             <h2>Free, open, simple</h2>
             <p>

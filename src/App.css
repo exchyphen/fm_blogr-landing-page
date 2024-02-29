@@ -42,7 +42,8 @@ p {
 }
 
 .feature__container {
-  max-width: 45%;
+  width: 45%;
+  max-width: 700px;
   line-height: 1.8rem;
 
   display: flex;
@@ -249,11 +250,13 @@ p {
   justify-content: center;
   align-items: center;
   gap: 1rem;
+
 }
 
 .header__h1 {
   color: var(--text-color);
   font-size: 4rem;
+  font-weight: 600;
 }
 
 .header__text {
@@ -281,6 +284,7 @@ p {
 /* main */
 
 main {
+  width: 100%;
   position: relative;
 }
 
@@ -334,7 +338,8 @@ main {
 }
 
 .feature2__phones-img {
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   height: auto;
 
   position: absolute;
@@ -417,4 +422,115 @@ footer {
 h4 {
   font-weight: 600;
   margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    background-image: url("./assets//images/bg-pattern-intro-mobile.svg"), linear-gradient(110deg, var(--header-gradient-1), var(--header-gradient-2));
+    background-size: auto 150vh;
+    background-position: left 35% top 35%;
+  }
+
+  .nav {
+    padding: 0 1rem;
+  }
+
+  .header {
+    gap: 8rem;
+  }
+
+  .header__cta-container {
+    text-align: center;
+  }
+
+  .header__h1 {
+    font-size: 3rem;
+  }
+
+  main {
+    text-align: center;
+  }
+
+  .main__h1 {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .feature1 {
+    background-image: none;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .feature__container {
+    width: 100%;
+  }
+
+  .feature1__img--mobile {
+    width: 120%;
+  }
+
+  .feature2 {
+    min-height: 700px;
+    background: url("./assets/images/bg-pattern-circles.svg") top -500px center no-repeat, 
+    linear-gradient(90deg, var(--body-gradient-1), var(--body-gradient-2));
+
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 120px;
+
+    margin-top: 300px;
+  }
+
+  .feature2__phones-img {
+    padding: 1rem;
+    top: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+   
+  .feature3__img--mobile {
+    width: 150%;
+  }
+
+  .feature3 {
+    padding: 1rem;
+    background-image: none;
+    align-items: center;
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding: 1rem;
+    gap: 3rem;
+  }
+
+  .footer__container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .footer__logo {
+    width: 8rem;
+    height: auto;
+  }
+
+  h4 {
+    margin-bottom: 1.5rem;
+  }
+
+  .feature1, .feature3 {
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header__h1 ,.main__h1 {
+    font-size: 2.5rem;
+  }
+
+  .feature2__phones-img {
+    top: -20%;
+  }
 }
