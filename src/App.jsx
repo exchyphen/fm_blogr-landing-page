@@ -6,11 +6,14 @@ import Nav__Logo from "./assets/images/logo.svg";
 import IconArrowDesktop from "./assets/images/icon-arrow-light.svg";
 import IconArrowMobile from "./assets/images/icon-arrow-dark.svg";
 import Phones from "./assets/images/illustration-phones.svg";
+import IconHamburger from "./assets/images/icon-hamburger.svg";
+import IconClose from "./assets/images/icon-close.svg";
 
 function App() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [navActiveTab, setNavActiveTab] = useState(0); // 0 = off
-  const mobileBreakpoint = 800;
+  const [menuState, setMenuState] = useState(false);
+  const mobileBreakpoint = 1200;
 
   // find out window width
   useEffect(() => {
@@ -24,37 +27,58 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  /* handlers */
-
   /* create item functions */
   const createNavItemList = (index, footer) => {
+    const mobile = windowWidth <= mobileBreakpoint;
+
     if (index === 1) {
       return (
         <div
-          className={!footer ? "nav__list-container" : "footer__list-container"}
+          className={
+            !footer
+              ? mobile
+                ? "nav__list-container--mobile"
+                : "nav__list-container"
+              : "footer__list-container"
+          }
         >
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Overview
           </a>
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Pricing
           </a>
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Marketplace
           </a>
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Features
           </a>
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Integrations
           </a>
@@ -63,25 +87,43 @@ function App() {
     } else if (index === 2) {
       return (
         <div
-          className={!footer ? "nav__list-container" : "footer__list-container"}
+          className={
+            !footer
+              ? mobile
+                ? "nav__list-container--mobile"
+                : "nav__list-container"
+              : "footer__list-container"
+          }
         >
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             About
           </a>
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Team
           </a>
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Blog
           </a>
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Careers
           </a>
@@ -90,20 +132,35 @@ function App() {
     } else {
       return (
         <div
-          className={!footer ? "nav__list-container" : "footer__list-container"}
+          className={
+            !footer
+              ? mobile
+                ? "nav__list-container--mobile"
+                : "nav__list-container"
+              : "footer__list-container"
+          }
         >
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Contact
           </a>
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Newsletter
           </a>
           <a
-            className={"nav__list-item" + (footer ? " footer__list-item" : "")}
+            className={
+              (mobile ? "nav__list-item--mobile" : "nav__list-item") +
+              (footer ? " footer__list-item" : "")
+            }
           >
             Linkedin
           </a>
@@ -148,34 +205,52 @@ function App() {
     const mobile = windowWidth <= mobileBreakpoint;
 
     return (
-      <div className="nav__dropdown-menu">
+      <div
+        className={mobile ? "nav__dropdown-menu--mobile" : "nav__dropdown-menu"}
+      >
         <div
-          className="nav__a-wrapper"
+          className="nav__dropdown-container"
           onClick={() => setNavActiveTab(navActiveTab === 1 ? 0 : 1)}
         >
-          <a>Product</a>
-          {createNavArrows(1)}
-          {!mobile && navActiveTab === 1 ? createNavItemList(1, false) : null}
+          <div className="nav__a-wrapper">
+            <a className={mobile && navActiveTab === 1 ? "nav__a--mobile" : ""}>
+              Product
+            </a>
+            {createNavArrows(1)}
+          </div>
+          {navActiveTab === 1 ? createNavItemList(1, false) : null}
         </div>
         <div
-          className="nav__a-wrapper"
+          className="nav__dropdown-container"
           onClick={() => setNavActiveTab(navActiveTab === 2 ? 0 : 2)}
         >
-          <a>Company</a>
-          {createNavArrows(2)}
-          {!mobile && navActiveTab === 2 ? createNavItemList(2, false) : null}
+          <div className="nav__a-wrapper">
+            <a className={mobile && navActiveTab === 2 ? "nav__a--mobile" : ""}>
+              Company
+            </a>
+            {createNavArrows(2)}
+          </div>
+          {navActiveTab === 2 ? createNavItemList(2, false) : null}
         </div>
         <div
-          className="nav__a-wrapper"
+          className="nav__dropdown-container"
           onClick={() => setNavActiveTab(navActiveTab === 3 ? 0 : 3)}
         >
-          <a>Connect</a>
-          {createNavArrows(3)}
-          {!mobile && navActiveTab === 3 ? createNavItemList(3, false) : null}
+          <div className="nav__a-wrapper">
+            <a className={mobile && navActiveTab === 3 ? "nav__a--mobile" : ""}>
+              Connect
+            </a>
+            {createNavArrows(3)}
+          </div>
+          {navActiveTab === 3 ? createNavItemList(3, false) : null}
         </div>
       </div>
     );
   };
+
+  /* handlers */
+
+  /* app return */
 
   return (
     <>
@@ -183,12 +258,28 @@ function App() {
         <nav className="nav">
           <div className="nav__left-container">
             <img className="nav__logo" src={Nav__Logo} alt="blogr logo"></img>
-            {createNavItems()}
+            {windowWidth > mobileBreakpoint ? createNavItems() : null}
           </div>
-          <div className="nav__right-container">
-            <a>Login</a>
-            <button className="nav__sign-up-button">Sign Up</button>
-          </div>
+          {windowWidth > mobileBreakpoint ? (
+            <div className="nav__right-container">
+              <a>Login</a>
+              <button className="nav__sign-up-button">Sign Up</button>
+            </div>
+          ) : menuState ? (
+            <img
+              className="nav__menu-icon"
+              src={IconClose}
+              alt="nav menu close icon"
+              onClick={() => setMenuState(false)}
+            ></img>
+          ) : (
+            <img
+              className="nav__menu-icon"
+              src={IconHamburger}
+              alt="nav menu open icon"
+              onClick={() => setMenuState(true)}
+            ></img>
+          )}
         </nav>
         <div className="header__cta-container">
           <h1 className="header__h1">A modern publishing platform</h1>
@@ -201,6 +292,18 @@ function App() {
           </div>
         </div>
       </header>
+      {menuState ? (
+        <div className="nav__mobile-modal">
+          {createNavItems()}
+          <div className="nav__divider"></div>
+          <div className="nav__right-container nav__right-container--mobile">
+            <a>Login</a>
+            <button className="nav__sign-up-button nav__sign-up-button--mobile">
+              Sign Up
+            </button>
+          </div>
+        </div>
+      ) : null}
       <main>
         <h1 className="main__h1">Designed for the future</h1>
         <section className="feature1">
